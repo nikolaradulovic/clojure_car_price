@@ -4,7 +4,7 @@
             [clojure.java.jdbc.sql :as s]))
 
 (def mysql-db {:subprotocol "mysql"
-               :subname "carprice.db"
+               :subname "//localhost:3306/carsdb"
                :user "root"
                :pass " "
                :zeroDateTimeBehaviour "convertToNull"})
