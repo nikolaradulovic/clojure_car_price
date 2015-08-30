@@ -1,0 +1,44 @@
+<html>
+  <head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+   <link rel="stylesheet" type="text/css" href="resources/public/theme.css">
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Used cars price prediction</title>
+  </head>
+  <body>
+     <div class="container">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/index">Cars</a></li>
+            <li role="presentation"><a href="/manufractures">Manufractures</a></li>
+             <li role="presentation"><a href="/weka">Weka</a></li>
+        </ul>
+         <div id="tableCars">
+              <h2>List of all cars</h1>
+               <table class="table table-bordered">
+               <tr>
+                   <th>Model</th>
+                   <th>Year of production</th>
+                   <th>Horse powers</th>
+                   <th>Kilometres</th>
+                   <th>Manufraturer</th>
+              {{#cars}}
+                    <tr class="success">
+                    <th>{{model}}</th>
+                    <th>{{yearprod}}</th>
+                    <th>{{horsepower}}</th>
+                    <th>{{kilometres}}</th>
+                    <th>{{name}}</th>
+              {{/cars}}
+              </tr>
+              </table>
+              </div>
+     </div>
+   </nav>
+  </body>
+</html>

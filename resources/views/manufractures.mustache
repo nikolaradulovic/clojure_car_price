@@ -1,0 +1,42 @@
+<html>
+  <head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+   <link rel="stylesheet" type="text/css" href="resources/public/theme.css">
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Used cars price prediction</title>
+  </head>
+  <body>
+     <div class="container">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/index">Cars</a></li>
+            <li role="presentation"><a href="/manufractures">Manufractures</a></li>
+             <li role="presentation"><a href="/weka">Weka</a></li>
+        </ul>
+         <div id="tableCars">
+              <h2>List of all manufracturers</h1>
+               <table class="table table-bordered">
+               <tr>
+                   <th>Name</th>
+                   <th>Founded year</th>
+                   <th>Headquarters</th>
+                   <th>Country</th>
+              {{#manufracturers}}
+                    <tr class="success">
+                    <th>{{name}}</th>
+                    <th>{{year}}</th>
+                    <th>{{head}}</th>
+                    <th>{{country}}</th>
+              {{/manufracturers}}
+              </tr>
+              </table>
+              </div>
+     </div>
+   </nav>
+  </body>
+</html>

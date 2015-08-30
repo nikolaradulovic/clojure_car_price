@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2015 at 12:35 AM
+-- Generation Time: Aug 30, 2015 at 12:58 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,16 +32,21 @@ CREATE TABLE IF NOT EXISTS `car` (
   `yearprod` int(11) NOT NULL,
   `kilometres` int(11) NOT NULL,
   `horsepower` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `manufracturerId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `manufracturerId` (`manufracturerId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`) VALUES
-(1, 'megan', 2005, 120000, 100),
-(2, 'clio', 2006, 66000, 100);
+INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`, `manufracturerId`) VALUES
+(1, 'Megan', 2005, 120000, 100, 1),
+(2, 'Clio', 2006, 66000, 100, 1),
+(3, 'Megan', 2009, 80323, 110, 1),
+(4, 'X5', 2010, 45000, 130, 2),
+(5, 'X3', 2011, 44320, 120, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
