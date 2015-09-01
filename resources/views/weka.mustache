@@ -1,0 +1,50 @@
+<html>
+  <head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+   <link rel="stylesheet" type="text/css" href="theme.css">
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Predict your car price</title>
+  </head>
+  <body>
+   <div class="container">
+    <ul class="nav nav-pills">
+                <li role="presentation"><a href="/index">Cars</a></li>
+                <li role="presentation"><a href="/manufractures">Manufractures</a></li>
+                 <li role="presentation"><a href="/weka">Weka</a></li>
+    </ul>
+    <h2 style="padding-top:30px;padding-left:30px;">Calculate price of your car:</h2>
+        <div id="formCar" style="width: 30%; padding-left:30px;">
+        <form action="/models/cars/calculate" method="post">
+            <div class="form-group">
+                <label>Model:</label>
+                <input type="text" class="form-control" name="model" placeholder="Model">
+            </div>
+            <div class="form-group">
+                <label>Year:</label>
+                <input type="number" class="form-control" name="year" placeholder="Year">
+           </div>
+           <div class="form-group">
+               <label>Horse power:</label>
+              <input type="number" class="form-control" name="hp" placeholder="HorsePower">
+            </div>
+            <div class="form-group">
+               <label>Mileage:</label>
+               <input type="number" class="form-control" name="mileage" placeholder="Mileage">
+            </div>
+             <button type="submit" class="btn btn-primary" style="float:right">Calculate</button>
+             </form>
+
+     <br/><br/><br/>
+
+        <label>Your car price:</label>
+        <input type="text" class="form-control" id="carPrice" placeholder="Price">
+        </div>
+     </div>
+  </body>
+  </html>

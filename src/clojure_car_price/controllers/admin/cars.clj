@@ -19,5 +19,10 @@
 (defn edit [id]
   (render-template "edit" {:post (cars-model/get id)}))
 
+
+
+;(defn create [params]
+;  (j/insert! mysql-db :car params))
+
 ;(defn new []
 ;  (render-template "new" {}))

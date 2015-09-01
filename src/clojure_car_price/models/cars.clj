@@ -12,10 +12,6 @@
 (def now
   (str (java.sql.Timestamp. (System/currentTimeMillis))))
 
-;(defn all []
-;  (j/query mysql-db
-;    (s/select * :car)))
-
 (defn get [id]
   (first (j/query mysql-db
            (s/select * :car (s/where {:id id})))))
@@ -27,5 +23,28 @@
 
 (defn allManufractures []
   (j/query mysql-db
-    ["SELECT m.name name, m.yearfounded year, cy.name head, c.name country FROM manufracturer m left join country c on m.countryid = c.countryId
+    ["SELECT m.manufracturerid id, m.name name, m.yearfounded year, cy.name head, c.name country FROM manufracturer m left join country c on m.countryid = c.countryId
   left join city cy on m.cityId = cy.cityId"]))
+
+(defn insertNewCar [params]
+  (j/insert! mysql-db :car params))
+
+(defn updateCar [id params]
+  (j/update! mysql-db :car params (s/where {:id id})))
+
+
+(defn calculate [params]
+  (def m (params :model))
+  (def y (params :year))
+  (def hpw (params :hp))
+  (def mil (params :mileage))
+   + 2 y
+  )
+
+
+
+(defn form-handler [request]
+  {:status 200
+   :headers {"Content-type" "text/plain"}
+   :body (str "params:\n" (:params request) "\nquery-params:\n" (:query-params request) "\nform-params:\n" (:form-params request))})
+

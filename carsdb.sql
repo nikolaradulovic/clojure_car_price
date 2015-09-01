@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2015 at 12:58 PM
+-- Generation Time: Sep 02, 2015 at 12:05 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `car` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `model` varchar(30) NOT NULL,
-  `yearprod` int(11) NOT NULL,
-  `kilometres` int(11) NOT NULL,
-  `horsepower` int(11) NOT NULL,
+  `model` varchar(30) DEFAULT NULL,
+  `yearprod` int(11) DEFAULT NULL,
+  `kilometres` int(11) DEFAULT NULL,
+  `horsepower` int(11) DEFAULT NULL,
   `manufracturerId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `manufracturerId` (`manufracturerId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `car`
@@ -46,7 +46,93 @@ INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`, `manuf
 (2, 'Clio', 2006, 66000, 100, 1),
 (3, 'Megan', 2009, 80323, 110, 1),
 (4, 'X5', 2010, 45000, 130, 2),
-(5, 'X3', 2011, 44320, 120, 2);
+(5, 'X3', 2011, 44320, 120, 2),
+(9, 'Modus', 2013, 66323, 80, 1),
+(10, 'Scenic', 2005, 140000, 90, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE IF NOT EXISTS `city` (
+  `cityId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `countryId` int(11) NOT NULL,
+  PRIMARY KEY (`cityId`),
+  KEY `countryId` (`countryId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`cityId`, `name`, `countryId`) VALUES
+(1, 'Munich', 2),
+(2, 'Boulogne', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
+CREATE TABLE IF NOT EXISTS `country` (
+  `countryId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  PRIMARY KEY (`countryId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`countryId`, `name`) VALUES
+(1, 'France'),
+(2, 'Germany');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manufracturer`
+--
+
+CREATE TABLE IF NOT EXISTS `manufracturer` (
+  `manufracturerId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `yearFounded` int(11) NOT NULL,
+  `cityId` int(11) NOT NULL,
+  `countryId` int(11) NOT NULL,
+  PRIMARY KEY (`manufracturerId`),
+  KEY `countryId` (`countryId`),
+  KEY `cityId` (`cityId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `manufracturer`
+--
+
+INSERT INTO `manufracturer` (`manufracturerId`, `name`, `yearFounded`, `cityId`, `countryId`) VALUES
+(1, 'Renault', 1898, 2, 1),
+(2, 'BMW', 1916, 1, 2);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `city`
+--
+ALTER TABLE `city`
+  ADD CONSTRAINT `fk_city` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`);
+
+--
+-- Constraints for table `manufracturer`
+--
+ALTER TABLE `manufracturer`
+  ADD CONSTRAINT `manufracturer_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
+  ADD CONSTRAINT `fk_country` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

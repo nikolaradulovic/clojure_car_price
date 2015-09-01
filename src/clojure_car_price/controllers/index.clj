@@ -1,7 +1,8 @@
 (ns clojure_car_price.controllers.index
   (:require
     [clostache.parser :as clostache]
-    [clojure_car_price.models.cars :as cars-model]))
+    [clojure_car_price.models.cars :as cars-model]
+    ))
 
 
 (defn read-template [template-name]
@@ -14,8 +15,20 @@
 (defn index []
   (render-template "index" {:cars (cars-model/allCars)}))
 
+(defn updatingCars []
+  (render-template "updatecar" {:cars (cars-model/allCars)
+                                  :manufracturers (cars-model/allManufractures)
+                                  }))
+
 (defn manufractures []
   (render-template "manufractures" {:manufracturers (cars-model/allManufractures)}))
+
+(defn weka []
+  (render-template "weka" {}))
+
+(defn newcar []
+  (render-template "newcar" {:manufracturers (cars-model/allManufractures)}))
+
 
 ;(defn weka []
 ;  (render-template "weka" {:cars (cars-model/allCars)}))
