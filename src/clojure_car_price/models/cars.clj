@@ -18,13 +18,13 @@
 
 (defn allCars []
   (j/query mysql-db
-    ["SELECT c.model, c.horsepower, c.yearprod, c.kilometres, m.name FROM car c
+    ["SELECT c.id, c.model, c.horsepower, c.yearprod, c.kilometres, m.name FROM car c
     LEFT JOIN manufracturer m on c.manufracturerid = m.manufracturerid"]))
 
-(defn allManufractures []
-  (j/query mysql-db
-    ["SELECT m.manufracturerid id, m.name name, m.yearfounded year, cy.name head, c.name country FROM manufracturer m left join country c on m.countryid = c.countryId
-  left join city cy on m.cityId = cy.cityId"]))
+;(defn allManufractures []
+;  (j/query mysql-db
+;    ["SELECT m.manufracturerid id, m.name name, m.yearfounded year, cy.name head, c.name country FROM manufracturer m left join country c on m.countryid = c.countryId
+;  left join city cy on m.cityId = cy.cityId"]))
 
 (defn insertNewCar [params]
   (j/insert! mysql-db :car params))
@@ -32,13 +32,16 @@
 (defn updateCar [id params]
   (j/update! mysql-db :car params (s/where {:id id})))
 
+(defn removeCar [id]
+  (j/delete! mysql-db :car (s/where {:id id})))
+
 
 (defn calculate [params]
   (def m (params :model))
   (def y (params :year))
   (def hpw (params :hp))
   (def mil (params :mileage))
-   + 2 y
+  + 2 y
   )
 
 

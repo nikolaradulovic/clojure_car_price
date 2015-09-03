@@ -25,19 +25,24 @@
                    <th>Horse powers</th>
                    <th>Kilometres</th>
                    <th>Manufraturer</th>
+				   <th>Edit</th>
+				   <th>Remove</th>
               {{#cars}}
                     <tr class="success">
                     <th>{{model}}</th>
                     <th>{{yearprod}}</th>
                     <th>{{horsepower}}</th>
                     <th>{{kilometres}}</th>
-                    <th>{{name}}</th>
+					<th>{{name}}</th>
+					<td><a href="/models/cars/{{id}}/update">Edit</a></td>
+					<td><a href="/models/cars/{{id}}/remove">Remove</a></td>
+                    
               {{/cars}}
               </tr>
               </table>
               </div>
               <a href="/newcar" class="btn btn-primary">Add new car</a>
-              <a href="/updatecar" class="btn btn-primary">Edit a car</a>
+            
      </div>
    </nav>
   </body>

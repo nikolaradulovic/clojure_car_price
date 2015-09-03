@@ -2,6 +2,7 @@
   (:require
     [clostache.parser :as clostache]
     [clojure_car_price.models.cars :as cars-model]
+    [clojure_car_price.models.manufracturer :as man-model]
     ))
 
 
@@ -15,19 +16,22 @@
 (defn index []
   (render-template "index" {:cars (cars-model/allCars)}))
 
-(defn updatingCars []
-  (render-template "updatecar" {:cars (cars-model/allCars)
-                                  :manufracturers (cars-model/allManufractures)
-                                  }))
+(defn updatingCars [id]
+  (render-template "updatecar" {:car (cars-model/get id)
+                                :manufracturers (man-model/allManufractures)
+                                }))
+
 
 (defn manufractures []
-  (render-template "manufractures" {:manufracturers (cars-model/allManufractures)}))
+  (render-template "manufractures" {:manufracturers (man-model/allManufractures)}))
 
 (defn weka []
   (render-template "weka" {}))
 
 (defn newcar []
-  (render-template "newcar" {:manufracturers (cars-model/allManufractures)}))
+  (render-template "newcar" {:manufracturers (man-model/allManufractures)}))
+
+
 
 
 ;(defn weka []
