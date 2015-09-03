@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2015 at 12:05 AM
+-- Generation Time: Sep 03, 2015 at 11:43 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,23 +32,24 @@ CREATE TABLE IF NOT EXISTS `car` (
   `yearprod` int(11) DEFAULT NULL,
   `kilometres` int(11) DEFAULT NULL,
   `horsepower` int(11) DEFAULT NULL,
+  `price` int(11) NOT NULL,
   `manufracturerId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `manufracturerId` (`manufracturerId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`, `manufracturerId`) VALUES
-(1, 'Megan', 2005, 120000, 100, 1),
-(2, 'Clio', 2006, 66000, 100, 1),
-(3, 'Megan', 2009, 80323, 110, 1),
-(4, 'X5', 2010, 45000, 130, 2),
-(5, 'X3', 2011, 44320, 120, 2),
-(9, 'Modus', 2013, 66323, 80, 1),
-(10, 'Scenic', 2005, 140000, 90, 1);
+INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`, `price`, `manufracturerId`) VALUES
+(1, 'Megan', 2006, 120000, 100, 3200, 1),
+(2, 'Clio', 2004, 66000, 100, 2200, 1),
+(4, 'X5', 2010, 45000, 130, 40000, 2),
+(5, 'X3', 2011, 44320, 120, 30000, 2),
+(9, 'Modus', 2013, 66323, 80, 4200, 1),
+(10, 'Scenic', 2005, 140000, 90, 3600, 1),
+(11, 'X6', 2012, 80000, 132, 42000, 2);
 
 -- --------------------------------------------------------
 

@@ -5,7 +5,9 @@
             [ring.middleware.basic-authentication :refer :all]
             [ring.util.response :as resp]
             [clojure_car_price.models.cars :as cars-model]
-            [clojure_car_price.controllers.index :as controller]))
+            [clojure_car_price.models.manufracturer :as man-model]
+            [clojure_car_price.controllers.index :as controller]
+            [clojure_car_price.models.weka :as weka-model]))
 
 
 ;(defn authenticated? [name pass]
@@ -25,6 +27,12 @@
   (GET "/newcar" [] (controller/newcar))
   (route/resources "/")
   (GET "/models/cars/:id/update" [id] (controller/updatingCars id))
+  (GET "/models/manufracturers/:manufracturerId/update" [manufracturerId] (controller/updatingMans manufracturerId))
+
+
+  (GET "/models/weka/export" []
+    (do (weka-model/write-csv)
+      (resp/redirect "/index")))
 
 
   (GET "/models/cars/:id/remove" [id]
@@ -35,19 +43,15 @@
     (do (cars-model/updateCar (:id params) params)
       (resp/redirect "/index")))
 
+(POST "/models/manufracturers/:manufracturerId/updateman" [& params]
+  (do (man-model/updateManu (:manufracturerId params) params)
+    (resp/redirect "/updateman")))
+
   (POST "/models/cars/create" [& params]
     (do (cars-model/insertNewCar params)
       (resp/redirect "/index")))
 
-
-  (POST "/models/cars/calculate" {params :params}
-    do(cars-model/calculate params))
-  (POST "/models/cars/form-handler" {params :require}
-    do(cars-model/form-handler params)))
-
-
-
-
+  )
 
 (defroutes app-routes
   public-routes

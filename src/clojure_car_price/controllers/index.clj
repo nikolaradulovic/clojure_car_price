@@ -3,6 +3,7 @@
     [clostache.parser :as clostache]
     [clojure_car_price.models.cars :as cars-model]
     [clojure_car_price.models.manufracturer :as man-model]
+    [clojure_car_price.models.country :as country-model]
     ))
 
 
@@ -19,6 +20,11 @@
 (defn updatingCars [id]
   (render-template "updatecar" {:car (cars-model/get id)
                                 :manufracturers (man-model/allManufractures)
+                                }))
+
+(defn updatingMans [id]
+  (render-template "updateman" {:country (country-model/allCountries)
+                                :manufracturer (man-model/get id)
                                 }))
 
 

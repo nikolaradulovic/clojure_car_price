@@ -24,6 +24,7 @@
                    <th>Year of production</th>
                    <th>Horse powers</th>
                    <th>Kilometres</th>
+                   <th>Price</th>
                    <th>Manufraturer</th>
 				   <th>Edit</th>
 				   <th>Remove</th>
@@ -33,15 +34,18 @@
                     <th>{{yearprod}}</th>
                     <th>{{horsepower}}</th>
                     <th>{{kilometres}}</th>
+                    <th>{{price}}</th>
 					<th>{{name}}</th>
-					<td><a href="/models/cars/{{id}}/update">Edit</a></td>
-					<td><a href="/models/cars/{{id}}/remove">Remove</a></td>
+					<td><a href="/models/cars/{{id}}/update" class="btn btn-success">Edit</a></td>
+					<td><a href="/models/cars/{{id}}/remove" class="btn btn-success">Remove</a></td>
                     
               {{/cars}}
               </tr>
               </table>
               </div>
               <a href="/newcar" class="btn btn-primary">Add new car</a>
+              <a href="/models/weka/export" class="btn btn-primary">Export to .CSV file</a>
+
             
      </div>
    </nav>

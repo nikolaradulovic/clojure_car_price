@@ -28,35 +28,20 @@
                 </ul>
       <h1>Editing Cars</h1>
        <div id="addForm" style="width:30%;">
-      <form action="/models/cars/{{car.id}}/updatecar" method="post">
+      <form action="/models/manufracturers/{{manufracturer.manufracturerid}}/updateman" method="post">
         <div class="form-group">
-            <label for="model">Model</label>
-            <input type="text" class="form-control" name="model" value="{{car.model}}"/>
+            <label for="model">Name</label>
+            <input type="text" class="form-control" name="name" value="{{manufracturer.name}}"/>
         </div>
         <div class="form-group">
-            <label for="year">Year</label>
-          <input type="number" class="form-control" name="yearprod" value="{{car.yearprod}}"/>
+            <label for="year">Year founded</label>
+          <input type="number" class="form-control" name="yearfounded" value="{{manufracturer.yearfounded}}"/>
         </div>
-        <div class="form-group">
-          <label for="horsepower">Horse Power</label>
-          <input type="number" class="form-control" name="horsepower" value="{{car.horsepower}}"/>
-         </div>
-          <div class="form-group">
-             <label for="mileage">Mileage</label>
-             <input type="number" class="form-control" name="kilometres" value="{{car.kilometres}}"/>
-          </div>
-
-          <div class="form-group">
-                       <label for="mileage">Price</label>
-                       <input type="number" class="form-control" name="price" value="{{car.price}}"/>
-                    </div>
-          <div class="form-group">
-		
-              <label for="man_id">Manufracturer</label>
-              <select name="manufracturerId" class="form-control" id="manufracturerId">
-                   {{#manufracturers}}
-                   <option value="{{id}}">{{name}}</option>
-                  {{/manufracturers}}
+              <label for="man_id">Country</label>
+              <select name="countryId" class="form-control" id="countryId">
+                   {{#country}}
+                   <option value="{{countryId}}">{{name}}</option>
+                  {{/country}}
               </select>
            </div>
            <button type="submit" class="btn btn-primary">Save changes</button>
