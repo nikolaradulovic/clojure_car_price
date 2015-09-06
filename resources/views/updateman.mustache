@@ -37,12 +37,19 @@
             <label for="year">Year founded</label>
           <input type="number" class="form-control" name="yearfounded" value="{{manufracturer.yearfounded}}"/>
         </div>
+		<label for="man_id">City</label>
+				<select name="cityId" class="form-control" id="cityId">
+                   {{#cities}}
+                   <option value="{{cityid}}">{{name}}</option>
+                  {{/cities}}
+              </select>
               <label for="man_id">Country</label>
               <select name="countryId" class="form-control" id="countryId">
                    {{#country}}
-                   <option value="{{countryId}}">{{name}}</option>
+                   <option value="{{countryid}}">{{name}}</option>
                   {{/country}}
               </select>
+			  
            </div>
            <button type="submit" class="btn btn-primary">Save changes</button>
       </form>

@@ -15,3 +15,9 @@
   (with-open [file (io/writer "result.csv")]
      (csv/write-csv file (cons headers rows)))))
 
+
+	 (use 'incanter.io)
+(def data (read-dataset "result.csv" :header true))
+
+;(defn showData[]
+;(view (scatter-plot :Sepal.Length :Sepal.Width :data (get-dataset :iris))))

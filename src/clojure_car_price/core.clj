@@ -26,6 +26,8 @@
   (route/resources "/")
   (GET "/newcar" [] (controller/newcar))
   (route/resources "/")
+  (GET "/newman" [] (controller/newman))
+  (route/resources "/")
   (GET "/models/cars/:id/update" [id] (controller/updatingCars id))
   (GET "/models/manufracturers/:manufracturerId/update" [manufracturerId] (controller/updatingMans manufracturerId))
 
@@ -39,17 +41,28 @@
     (do (cars-model/removeCar id)
       (resp/redirect "/index")))
 
+	  (GET "/models/manufracturers/:id/remove" [id]
+    (do (man-model/removeMan id)
+      (resp/redirect "/manufractures")))
+
+	  
+	  
   (POST "/models/cars/:id/updatecar" [& params]
     (do (cars-model/updateCar (:id params) params)
       (resp/redirect "/index")))
 
 (POST "/models/manufracturers/:manufracturerId/updateman" [& params]
   (do (man-model/updateManu (:manufracturerId params) params)
-    (resp/redirect "/updateman")))
+    (resp/redirect "/manufractures")))
 
   (POST "/models/cars/create" [& params]
     (do (cars-model/insertNewCar params)
       (resp/redirect "/index")))
+	  
+	  
+  (POST "/models/manufracturers/create" [& params]
+    (do (man-model/insertNewMan params)
+      (resp/redirect "/manufractures")))
 
   )
 

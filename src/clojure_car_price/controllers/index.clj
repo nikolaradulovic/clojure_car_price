@@ -4,6 +4,7 @@
     [clojure_car_price.models.cars :as cars-model]
     [clojure_car_price.models.manufracturer :as man-model]
     [clojure_car_price.models.country :as country-model]
+	 [clojure_car_price.models.city :as city-model]
     ))
 
 
@@ -25,6 +26,7 @@
 (defn updatingMans [id]
   (render-template "updateman" {:country (country-model/allCountries)
                                 :manufracturer (man-model/get id)
+								:cities (city-model/allCities)
                                 }))
 
 
@@ -36,9 +38,10 @@
 
 (defn newcar []
   (render-template "newcar" {:manufracturers (man-model/allManufractures)}))
-
-
-
+  
+  (defn newman []
+  (render-template "newMan" {:countries (country-model/allCountries)
+											:cities (city-model/allCities)}))
 
 ;(defn weka []
 ;  (render-template "weka" {:cars (cars-model/allCars)}))

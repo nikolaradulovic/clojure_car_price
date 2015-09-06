@@ -20,3 +20,9 @@
 
 (defn updateManu [id params]
   (j/update! mysql-db :manufracturer params (s/where {:manufracturerId id})))
+  
+  (defn insertNewMan [params]
+  (j/insert! mysql-db :manufracturer params))
+  
+  (defn removeMan [id]
+  (j/delete! mysql-db :manufracturer (s/where {:id id})))
