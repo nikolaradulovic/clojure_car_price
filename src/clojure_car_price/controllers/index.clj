@@ -33,8 +33,8 @@
 (defn manufractures []
   (render-template "manufractures" {:manufracturers (man-model/allManufractures)}))
 
-(defn weka []
-  (render-template "weka" {}))
+(defn datamin []
+  (render-template "datamin" {}))
 
 (defn newcar []
   (render-template "newcar" {:manufracturers (man-model/allManufractures)}))
@@ -43,5 +43,5 @@
   (render-template "newMan" {:countries (country-model/allCountries)
 											:cities (city-model/allCities)}))
 
-;(defn weka []
-;  (render-template "weka" {:cars (cars-model/allCars)}))
+;(defn datamin []
+;  (render-template "datamin" {:cars (cars-model/allCars)}))

@@ -8,18 +8,22 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <title>Used cars price prediction</title>
+	<style>
+	
+		h2 {font-family:"Tahoma"}
+	</style>
   </head>
-  <body>
+  <body style="background:#D1E0FF">
      <div class="container">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a href="/index">Cars</a></li>
-            <li role="presentation"><a href="/manufractures">Manufractures</a></li>
-             <li role="presentation"><a href="/weka">Weka</a></li>
-        </ul>
+         <ul class="nav nav-pills" style="padding-top:10px;">
+                <a href="/index" class="btn btn-success">Cars</a>
+                <a href="/manufractures" class="btn btn-success">Manufractures</a>
+                <a href="/datamin" class="btn btn-success">DataMining</a>
+    </ul>
          <div id="tableCars" style="width:70%;">
-              <h2>List of all cars</h1>
-               <table class="table table-bordered">
-               <tr>
+              <u><h2>List of all cars currently on the market</h2></u><br/>
+               <table class="table table-bordered" style="border:solid">
+               <tr style="border:solid">
                    <th>Model</th>
                    <th>Year of production</th>
                    <th>Horse powers</th>
@@ -29,7 +33,7 @@
 				   <th>Edit</th>
 				   <th>Remove</th>
               {{#cars}}
-                    <tr class="success">
+                    <tr style="border:dotted">
                     <th>{{model}}</th>
                     <th>{{yearprod}}</th>
                     <th>{{horsepower}}</th>
@@ -44,7 +48,7 @@
               </table>
               </div>
               <a href="/newcar" class="btn btn-primary">Add new car</a>
-              <a href="/models/weka/export" class="btn btn-primary">Export to .CSV file</a>
+              <a href="/models/datamin/export" class="btn btn-primary">Export to .CSV file</a>
 
             
      </div>

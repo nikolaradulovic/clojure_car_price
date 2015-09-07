@@ -9,27 +9,31 @@
 
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+   <style>
+	
+		h2 {font-family:"Tahoma"}
+	</style>
     <title>Used cars price prediction</title>
+	
   </head>
-  <body>
+  <body style="background:#D1E0FF">
      <div class="container">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a href="/index">Cars</a></li>
-            <li role="presentation"><a href="/manufractures">Manufractures</a></li>
-             <li role="presentation"><a href="/weka">Weka</a></li>
-        </ul>
+         <ul class="nav nav-pills" style="padding-top:10px;">
+                <a href="/index" class="btn btn-success">Cars</a>
+                <a href="/manufractures" class="btn btn-success">Manufractures</a>
+                <a href="/datamin" class="btn btn-success">DataMining</a>
+    </ul>
          <div id="tableCars" style="width:50%;">
-              <h2>List of all manufracturers</h1>
-               <table class="table table-bordered">
-               <tr>
+              <u><h2>List of all car manufracturers</h2></u><br/>
+               <table class="table table-bordered" style="border:solid">
+               <tr style="border:solid">
                    <th>Name</th>
                    <th>Year</th>
                    <th>Headquarters</th>
                    <th>Country</th>
-                   <th>Edit</th>
-                   
+                   <th>Edit</th>              
               {{#manufracturers}}
-                    <tr class="success">
+                    <tr style="border:dotted">
                     <th>{{name}}</th>
                     <th>{{year}}</th>
                     <th>{{head}}</th>

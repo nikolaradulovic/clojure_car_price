@@ -7,7 +7,7 @@
             [clojure_car_price.models.cars :as cars-model]
             [clojure_car_price.models.manufracturer :as man-model]
             [clojure_car_price.controllers.index :as controller]
-            [clojure_car_price.models.weka :as weka-model]))
+            [clojure_car_price.models.datamin :as datamin-model]))
 
 
 ;(defn authenticated? [name pass]
@@ -22,7 +22,7 @@
   (route/resources "/")
   (GET "/manufractures" [] (controller/manufractures))
   (route/resources "/")
-  (GET "/weka" [] (controller/weka))
+  (GET "/datamin" [] (controller/datamin))
   (route/resources "/")
   (GET "/newcar" [] (controller/newcar))
   (route/resources "/")
@@ -30,10 +30,22 @@
   (route/resources "/")
   (GET "/models/cars/:id/update" [id] (controller/updatingCars id))
   (GET "/models/manufracturers/:manufracturerId/update" [manufracturerId] (controller/updatingMans manufracturerId))
+  
+   (GET "/models/datamin/priceMileage" [] 
+   (do (datamin-model/plotPriceMileage)
+   (resp/redirect "/datamin")))
+   
+   (GET "/models/datamin/priceHorsePower" [] 
+   (do (datamin-model/plotPriceHP)
+   (resp/redirect "/datamin")))
+   
+   (GET "/models/datamin/priceYear" [] 
+   (do (datamin-model/plotPriceYear)
+   (resp/redirect "/datamin")))
 
 
-  (GET "/models/weka/export" []
-    (do (weka-model/write-csv)
+  (GET "/models/datamin/export" []
+    (do (datamin-model/write-csv)
       (resp/redirect "/index")))
 
 

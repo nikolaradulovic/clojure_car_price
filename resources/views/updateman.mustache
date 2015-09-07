@@ -19,13 +19,13 @@
 
     <title>Editing a car</title>
   </head>
-  <body>
-    <div class="container">
-        <ul class="nav nav-pills">
-                    <li role="presentation"><a href="/index">Cars</a></li>
-                    <li role="presentation"><a href="/manufractures">Manufractures</a></li>
-                     <li role="presentation"><a href="/weka">Weka</a></li>
-                </ul>
+  <body style="background:#D1E0FF">
+     <div class="container">
+         <ul class="nav nav-pills" style="padding-top:10px;">
+                <a href="/index" class="btn btn-success">Cars</a>
+                <a href="/manufractures" class="btn btn-success">Manufractures</a>
+                <a href="/datamin" class="btn btn-success">DataMining</a>
+    </ul>
       <h1>Editing Cars</h1>
        <div id="addForm" style="width:30%;">
       <form action="/models/manufracturers/{{manufracturer.manufracturerid}}/updateman" method="post">
