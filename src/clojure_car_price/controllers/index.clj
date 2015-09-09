@@ -4,8 +4,7 @@
     [clojure_car_price.models.cars :as cars-model]
     [clojure_car_price.models.manufracturer :as man-model]
     [clojure_car_price.models.country :as country-model]
-	 [clojure_car_price.models.city :as city-model]
-    ))
+	 [clojure_car_price.models.city :as city-model]))
 
 
 (defn read-template [template-name]
@@ -20,14 +19,12 @@
 
 (defn updatingCars [id]
   (render-template "updatecar" {:car (cars-model/get id)
-                                :manufracturers (man-model/allManufractures)
-                                }))
+											  :manufracturers (man-model/allManufractures)}))
 
 (defn updatingMans [id]
   (render-template "updateman" {:country (country-model/allCountries)
-                                :manufracturer (man-model/get id)
-								:cities (city-model/allCities)
-                                }))
+											   :manufracturer (man-model/get id)
+										       :cities (city-model/allCities)}))
 
 
 (defn manufractures []
@@ -39,9 +36,9 @@
 (defn newcar []
   (render-template "newcar" {:manufracturers (man-model/allManufractures)}))
   
-  (defn newman []
+(defn newman []
   (render-template "newMan" {:countries (country-model/allCountries)
-											:cities (city-model/allCities)}))
+										   :cities (city-model/allCities)}))
 
 ;(defn datamin []
 ;  (render-template "datamin" {:cars (cars-model/allCars)}))

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2015 at 07:24 PM
+-- Generation Time: Sep 03, 2015 at 11:43 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `car` (
   `manufracturerId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `manufracturerId` (`manufracturerId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `car`
@@ -49,10 +49,7 @@ INSERT INTO `car` (`id`, `model`, `yearprod`, `kilometres`, `horsepower`, `price
 (5, 'X3', 2011, 44320, 120, 30000, 2),
 (9, 'Modus', 2013, 66323, 80, 4200, 1),
 (10, 'Scenic', 2005, 140000, 90, 3600, 1),
-(11, 'X6', 2012, 80000, 132, 42000, 2),
-(12, 'Modus', 2011, 60000, 80, 4500, 1),
-(13, 'A3', 2013, 35000, 130, 23000, 8),
-(14, 'Tiguan', 2010, 70000, 120, 37000, 7);
+(11, 'X6', 2012, 80000, 132, 42000, 2);
 
 -- --------------------------------------------------------
 
@@ -66,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `countryId` int(11) NOT NULL,
   PRIMARY KEY (`cityId`),
   KEY `countryId` (`countryId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `city`
@@ -74,12 +71,7 @@ CREATE TABLE IF NOT EXISTS `city` (
 
 INSERT INTO `city` (`cityId`, `name`, `countryId`) VALUES
 (1, 'Munich', 2),
-(2, 'Boulogne', 1),
-(3, 'Stuttgart', 2),
-(4, 'Saint-Ouen', 1),
-(5, 'Sochaux', 1),
-(6, 'Wolfsburg', 2),
-(7, 'Ingolstadt', 2);
+(2, 'Boulogne', 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `manufracturer` (
   PRIMARY KEY (`manufracturerId`),
   KEY `countryId` (`countryId`),
   KEY `cityId` (`cityId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `manufracturer`
@@ -124,13 +116,7 @@ CREATE TABLE IF NOT EXISTS `manufracturer` (
 
 INSERT INTO `manufracturer` (`manufracturerId`, `name`, `yearFounded`, `cityId`, `countryId`) VALUES
 (1, 'Renault', 1898, 2, 1),
-(2, 'BMW', 1916, 1, 2),
-(3, 'Mercedes', 1926, 3, 2),
-(4, 'Porsche', 1931, 3, 2),
-(5, 'Citroen', 1919, 4, 1),
-(6, 'Peugeot', 1926, 5, 1),
-(7, 'Volkswagen', 1937, 6, 2),
-(8, 'Audi', 1932, 7, 2);
+(2, 'BMW', 1916, 1, 2);
 
 --
 -- Constraints for dumped tables

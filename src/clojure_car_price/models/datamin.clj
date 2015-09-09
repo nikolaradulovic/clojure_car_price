@@ -1,52 +1,60 @@
 (ns clojure_car_price.models.datamin
   (:require [clojure.data.csv :as csv]
-            [clojure.java.io :as io]
-            [clojure.java.jdbc :as j]
-            [clojure.java.jdbc.sql :as s]
-            [clojure_car_price.models.cars :as cars-model]
-            )
+			    [clojure.java.io :as io]
+			    [clojure.java.jdbc :as j]
+				[clojure.java.jdbc.sql :as s]
+				[clojure_car_price.models.cars :as cars-model])
   (:use [incanter.core :only [sel to-matrix]]
-        [incanter.stats :only [linear-model]]
-        [incanter.charts  :as icharts]
-        [incanter.core :only [view]]))
+	      [incanter.stats :only [linear-model]]		
+		  [incanter.charts  :as icharts]
+	      [incanter.core :only [view]]))
 
 
 
 (defn write-csv []
   (let [columns [:mid :horsepower :yearprod :kilometres :price]
-        headers  (map name columns)
-        result (cars-model/carsForExport)
-        rows  (mapv #(mapv % columns) result)]
-    (with-open [file (io/writer "result.csv")]
-      (csv/write-csv file (cons headers rows)))))
+    headers  (map name columns)
+    result (cars-model/carsForExport)
+    rows  (mapv #(mapv % columns) result)]
+  (with-open [file (io/writer "result.csv")]
+    (csv/write-csv file (cons headers rows)))))
 
+	
 (use 'incanter.io)
 (def data (read-dataset "result.csv" :header true))
 
+(def carDataSet
+  (let [columns [:mid :horsepower :yearprod :kilometres :price]
+    headers  (map name columns)
+    result (cars-model/carsForExport)
+    rows  (mapv #(mapv % columns) result)]
+     print rows))
 
-(def carPrice (sel data :cols 4))
-(def carMileage (sel data :cols 3))
-(def carHP (sel data :cols 1))
-(def carYear (sel data :cols 2))
+
+
+(def carPrice (sel carDataSet :cols 4))
+(def carMileage (sel carDataSet :cols 3))
+(def carHP (sel carDataSet :cols 1))
+(def carYear (sel carDataSet :cols 2))
 
 (defn ols-linear-model [Y X]
   (linear-model Y X))
 
 (defn make-scatter-plot-chart [X Y]
-  (icharts/scatter-plot X Y))
+  (icharts/scatter-plot X Y))			
 
 (defn plot-model [X Y] (view
-                         (icharts/add-lines (make-scatter-plot-chart X Y)
-                           X (:fitted (ols-linear-model Y X)))))
+  (icharts/add-lines (make-scatter-plot-chart X Y)  
+     X (:fitted (ols-linear-model Y X)))))
+									   
 
-
-(defn plotPriceMileage []
+(defn plotPriceMileage [] 
   (plot-model carPrice carMileage))
 
-(defn plotPriceHP []
+(defn plotPriceHP [] 
   (plot-model carPrice carHP))
 
-(defn plotPriceYear []
+(defn plotPriceYear [] 
   (plot-model carPrice carYear))
 
 
