@@ -1,13 +1,13 @@
 (ns clojure_car_price.models.manufracturer
   (:refer-clojure :exclude [get])
   (:require [clojure.java.jdbc :as j]
-				[clojure.java.jdbc.sql :as s]))
+	    [clojure.java.jdbc.sql :as s]))
 
 (def mysql-db {:subprotocol "mysql"
-					 :subname "//localhost:3306/carsdb"
-					 :user "root"
-					 :pass " "
-					 :zeroDateTimeBehaviour "convertToNull"})
+	       :subname "//localhost:3306/carsdb"
+	       :user "root"
+	       :pass " "
+	       :zeroDateTimeBehaviour "convertToNull"})
 
 (defn get [id]
   (first (j/query mysql-db
