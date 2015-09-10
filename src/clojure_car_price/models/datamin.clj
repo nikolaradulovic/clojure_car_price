@@ -1,13 +1,13 @@
 (ns clojure_car_price.models.datamin
   (:require [clojure.data.csv :as csv]
-			    [clojure.java.io :as io]
-			    [clojure.java.jdbc :as j]
-				[clojure.java.jdbc.sql :as s]
-				[clojure_car_price.models.cars :as cars-model])
+	    [clojure.java.io :as io]
+	    [clojure.java.jdbc :as j]
+            [clojure.java.jdbc.sql :as s]
+	    [clojure_car_price.models.cars :as cars-model])
   (:use [incanter.core :only [sel to-matrix]]
-	      [incanter.stats :only [linear-model]]		
-		  [incanter.charts  :as icharts]
-	      [incanter.core :only [view]]))
+	[incanter.stats :only [linear-model]]		
+	[incanter.charts  :as icharts]
+	[incanter.core :only [view]]))
 
 
 
