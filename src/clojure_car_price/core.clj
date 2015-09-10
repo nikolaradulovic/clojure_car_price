@@ -1,13 +1,13 @@
 (ns clojure_car_price.core
   (:use compojure.core)
   (:require [compojure.handler :as handler]
-				[compojure.route :as route]
-				[ring.middleware.basic-authentication :refer :all]
-				[ring.util.response :as resp]
-				[clojure_car_price.models.cars :as cars-model]
-				[clojure_car_price.models.manufracturer :as man-model]
-				[clojure_car_price.controllers.index :as controller]
-				[clojure_car_price.models.datamin :as datamin-model]))
+	    [compojure.route :as route]
+	    [ring.middleware.basic-authentication :refer :all]
+            [ring.util.response :as resp]
+            [clojure_car_price.models.cars :as cars-model]
+	    [clojure_car_price.models.manufracturer :as man-model]
+	    [clojure_car_price.controllers.index :as controller]
+	    [clojure_car_price.models.datamin :as datamin-model]))
 
 
 ;(defn authenticated? [name pass]
