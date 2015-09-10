@@ -4,7 +4,7 @@
     [clojure_car_price.models.cars :as cars-model]
     [clojure_car_price.models.manufracturer :as man-model]
     [clojure_car_price.models.country :as country-model]
-	 [clojure_car_price.models.city :as city-model]))
+    [clojure_car_price.models.city :as city-model]))
 
 
 (defn read-template [template-name]
